@@ -8,7 +8,7 @@ const VARIANT_OPTIONS = ['notice', 'warning', 'success', 'error'];
 
 function ToastPlayGroundForm() {
   const [message, setMessage] = React.useState('');
-  const [variant, setVariant] = React.useState();
+  const [variant, setVariant] = React.useState(VARIANT_OPTIONS[0]);
 
   const handleMessageChange = (event) => {
     setMessage(event.target.value);
