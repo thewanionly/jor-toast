@@ -1,10 +1,12 @@
 import React from 'react';
 
+const ESCAPE_KEY = 'Escape';
+
 const useEscapeKey = (callbackFn) => {
   React.useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        callbackFn?.();
+      if (event.key === ESCAPE_KEY) {
+        callbackFn?.(event);
       }
     };
 
