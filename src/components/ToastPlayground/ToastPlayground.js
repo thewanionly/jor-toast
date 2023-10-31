@@ -20,7 +20,7 @@ function ToastPlayground() {
     setVariant(event.target.value);
   };
 
-  const handleFormSubmit = (event) => {
+  const handleCreateToast = (event) => {
     event.preventDefault();
 
     setToasts((prevState) => [
@@ -37,6 +37,10 @@ function ToastPlayground() {
     setVariant(VARIANT_OPTIONS[0]);
   };
 
+  const handleDeleteToast = (toastId) => {
+    setToasts((prevState) => prevState.filter(({ id }) => id !== toastId));
+  };
+
   return (
     <div className={styles.wrapper}>
       <header>
@@ -44,9 +48,9 @@ function ToastPlayground() {
         <h1>Toast Playground</h1>
       </header>
 
-      {toasts.length > 0 && <ToastShelf toasts={toasts} setToasts={setToasts} />}
+      {toasts.length > 0 && <ToastShelf toasts={toasts} onToastDismiss={handleDeleteToast} />}
 
-      <form className={styles.controlsWrapper} onSubmit={handleFormSubmit}>
+      <form className={styles.controlsWrapper} onSubmit={handleCreateToast}>
         <div className={styles.row}>
           <label htmlFor='message' className={styles.label} style={{ alignSelf: 'baseline' }}>
             Message
