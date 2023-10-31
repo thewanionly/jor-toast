@@ -2,6 +2,8 @@ import React from 'react';
 
 export const ToastContext = React.createContext();
 
+export const useToastContext = () => React.useContext(ToastContext);
+
 function ToastProvider({ children }) {
   const [toasts, setToasts] = React.useState([]);
 

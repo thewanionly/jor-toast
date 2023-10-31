@@ -4,12 +4,12 @@ import Button from '../Button';
 
 import styles from './ToastPlayground.module.css';
 import ToastShelf from '../ToastShelf/ToastShelf';
-import { ToastContext } from '../ToastProvider';
+import { useToastContext } from '../ToastProvider';
 
 const VARIANT_OPTIONS = ['notice', 'warning', 'success', 'error'];
 
 function ToastPlayground() {
-  const { toasts, createToast, deleteToast } = React.useContext(ToastContext);
+  const { toasts, createToast, deleteToast } = useToastContext();
   const [message, setMessage] = React.useState('');
   const [variant, setVariant] = React.useState(VARIANT_OPTIONS[0]);
 
