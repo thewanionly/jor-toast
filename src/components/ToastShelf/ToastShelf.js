@@ -9,17 +9,15 @@ function ToastShelf() {
   const { toasts, deleteToast } = useToastContext();
 
   return (
-    toasts.length > 0 && (
-      <ol className={styles.wrapper} role='region' aria-live='polite' aria-label='Notification'>
-        {toasts.map(({ id, message, variant }) => (
-          <li key={id} className={styles.toastWrapper}>
-            <Toast variant={variant} onDismiss={() => deleteToast(id)}>
-              {message}
-            </Toast>
-          </li>
-        ))}
-      </ol>
-    )
+    <ol className={styles.wrapper} role='region' aria-live='polite' aria-label='Notification'>
+      {toasts.map(({ id, message, variant }) => (
+        <li key={id} className={styles.toastWrapper}>
+          <Toast variant={variant} onDismiss={() => deleteToast(id)}>
+            {message}
+          </Toast>
+        </li>
+      ))}
+    </ol>
   );
 }
 
