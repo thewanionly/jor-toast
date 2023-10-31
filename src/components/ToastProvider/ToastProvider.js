@@ -24,9 +24,9 @@ function ToastProvider({ children }) {
     setToasts((currentToasts) => currentToasts.filter(({ id }) => id !== toastId));
   }, []);
 
-  const deleteAllToasts = () => {
+  const deleteAllToasts = React.useCallback(() => {
     setToasts([]);
-  };
+  }, []);
 
   useEscapeKey(deleteAllToasts);
 
